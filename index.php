@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>データ登録</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
     <style>
         div {
             padding: 10px;

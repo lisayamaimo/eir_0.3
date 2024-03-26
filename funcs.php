@@ -13,7 +13,7 @@ function db_conn()
         $db_name = 'gs_eir';    //データベース名
         $db_id   = 'root';      //アカウント名
         $db_pw   = '';      //パスワード：XAMPPはパスワード無しに修正してください。
-        $db_host = 'localhost'; //DBホスト
+        $db_host = '127.0.0.1'; //DBホスト
         $pdo = new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
         return $pdo;
     } catch (PDOException $e) {
