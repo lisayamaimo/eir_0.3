@@ -14,7 +14,7 @@ $pdo = db_conn();
 
 //2. データ登録SQL作成
 // gs_user_tableに、IDとWPがあるか確認する。
-$stmt = $pdo->prepare('SELECT * FROM gs_eir WHERE lid = :lid AND lpw = :lpw; ');
+$stmt = $pdo->prepare('SELECT * FROM gs_user_table WHERE lid = :lid AND lpw = :lpw; ');
 $stmt->bindValue(':lid', $lid, PDO::PARAM_STR);
 $stmt->bindValue(':lpw', $lpw, PDO::PARAM_STR);
 $status = $stmt->execute();
