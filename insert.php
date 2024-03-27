@@ -22,7 +22,7 @@ $mg_set_no = $_POST['mg_set_no'];
 $ref_temperature = $_POST['ref_temperature'];
 $shipper_consignee = $_POST['shipper_consignee'];
 $yard_location = $_POST['yard_location'];
-$condition = $_POST['condition'];
+$conditions = $_POST['conditions'];
 $destination = $_POST['destination'];
 $return_place = $_POST['return_place'];
 $remarks = $_POST['remarks'];
@@ -33,15 +33,11 @@ require_once('funcs.php');
 $pdo = db_conn();
 
 //３．データ登録SQL作成
-$stmt = $pdo->prepare
-('INSERT INTO gs_eir(shipping_line, place, date_time, carrier, vessel, voy, bkg_bl_no, container_no, seal_no, size, type, status, pod, discharging_port, loading_port, por, tare_weight, imo_no, mg_set_no, ref_temperature, shipper_consignee, yard_location, condition, destination, return_place, remarks
-,indate)
-VALUES(:shipping_line, :place, :date_time, :carrier, :vessel, :voy, :bkg_bl_no, :container_no, :seal_no, :size, :type, :status, :pod, :discharging_port, :loading_port, :por, :tare_weight, :imo_no, :mg_set_no, :ref_temperature, :shipper_consignee, :yard_location, :condition, :destination, :return_place, :remarks
-,sysdate());');
+$stmt = $pdo->prepare('INSERT INTO gs_eir(shipping_line,place, date_time, carrier, vessel, voy, bkg_bl_no, container_no, seal_no, size, type,status,pod,discharging_port,loading_port,por,tare_weight,imo_no,mg_set_no,ref_temperature,shipper_consignee,yard_location,conditions,destination,return_place,remarks) VALUES(:shipping_line, :place, sysdate(), :carrier,:vessel, :voy, :bkg_bl_no, :container_no, :seal_no, :size, :type,:status,:pod,:discharging_port,:loading_port,:por,:tare_weight,:imo_no,:mg_set_no,:ref_temperature,:shipper_consignee,:yard_location,:conditions,:destination,:return_place,:remarks);');
 
 $stmt->bindValue(':shipping_line', $shipping_line, PDO::PARAM_STR);
 $stmt->bindValue(':place', $place, PDO::PARAM_STR);
-$stmt->bindValue(':date_time', $date_time, PDO::PARAM_STR); // Note: For datetime, consider formatting it as a string
+// $stmt->bindValue(':date_time', $date_time, PDO::PARAM_STR); // Note: For datetime, consider formatting it as a string
 $stmt->bindValue(':carrier', $carrier, PDO::PARAM_STR);
 $stmt->bindValue(':vessel', $vessel, PDO::PARAM_STR);
 $stmt->bindValue(':voy', $voy, PDO::PARAM_STR);
@@ -61,7 +57,8 @@ $stmt->bindValue(':mg_set_no', $mg_set_no, PDO::PARAM_STR);
 $stmt->bindValue(':ref_temperature', $ref_temperature, PDO::PARAM_STR);
 $stmt->bindValue(':shipper_consignee', $shipper_consignee, PDO::PARAM_STR);
 $stmt->bindValue(':yard_location', $yard_location, PDO::PARAM_STR);
-$stmt->bindValue(':condition', $condition, PDO::PARAM_STR);
+
+$stmt->bindValue(':conditions', $conditions, PDO::PARAM_STR);
 $stmt->bindValue(':destination', $destination, PDO::PARAM_STR);
 $stmt->bindValue(':return_place', $return_place, PDO::PARAM_STR);
 $stmt->bindValue(':remarks', $remarks, PDO::PARAM_STR);

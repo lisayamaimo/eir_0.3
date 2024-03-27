@@ -52,7 +52,7 @@
                 <label>ref_temperature：<input type="text" name="ref_temperature"></label><br>
                 <label>shipper_consignee：<input type="text" name="shipper_consignee"></label><br>
                 <label>yard_location：<input type="text" name="yard_location"></label><br>
-                <label>condition：<input type="text" name="condition"></label><br>
+                <label>condition：<input type="text" name="conditions"></label><br>
                 <label>destination：<input type="text" name="destination"></label><br>
                 <label>return_place：<input type="text" name="return_place"></label><br>
                 <label>remarks：<input type="text" name="remarks"></label><br>
