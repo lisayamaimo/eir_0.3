@@ -42,7 +42,7 @@ if ($status == false) {
     while ($r = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $view .= '<p>';
         $view .= '<a href="detail.php?id=' . $r["id"] . '">';
-        $view .= h($r['id']) . " " . h($r['name']) . " " . h($r['email']);
+        $view .= h($r['id']) . " " . h($r['container_no']) . " " . h($r['bkg_bl_no']);
         $view .= '</a>';
         $view .= "　";
         $view .= '<a class="btn btn-danger" href="delete.php?id=' . $r['id'] . '">';
